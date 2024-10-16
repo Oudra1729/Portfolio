@@ -77,6 +77,6 @@ export const PROJECTS = [
 
 export const CONTACT = {
   address: "Marrakesh-safi",
-  phoneNo: "+212 9596 80 53",
+  phoneNo: "+212 695 96 80 53",
   email: "oudra.brahim.99@gmail.com",
 };
