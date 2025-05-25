@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { PROJECTS } from '../constants';
 import { motion }from "framer-motion";
 
@@ -36,7 +36,9 @@ const Projects = () => {
                     {project.title}
                 </h6>
                 <p className="mb-4 text-neutral-400 ">
-                    {project.description}
+                    {/* {project.description} */}
+                    <p>{project.description} <a href={project.url} target="_blank" rel="noopener noreferrer">{project.url}</a></p>
+
                 </p>
                 {project.technologies.map((tech ,index)=>(
                     <span key={index} className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium">
