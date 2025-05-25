@@ -39,11 +39,19 @@ performance and user experience through efficient design and data management pra
 
 export const PROJECTS = [
   {
+    title: "🌐 Rival Group LLC – Official Website",
+    image: project4,
+     Role: "Full-Stack Web Developer",
+     Description:" 🔗 URL: rivalgroupllc.com",
+     Technologies: ["Laravel", "Blade", "Tailwind CSS", "MySQL","Multilingual (EN/AR)"]
+  },
+  {
+
     title: "Web Developer (Final Year Project(PFE))",
     image: project4,
     role: "Web Developer (Final Year Project)",
     company: "ISTA Mohammed El-Fassi Errachidia",
-    description: `Developed a web application for home search, allowing users to buy, sell, or rent properties. This project aimed to create a secure and reliable platform using Laravel, which included features such as user registration and login, advanced property search, and management of real estate advertisements. Additionally, I implemented a communication system that facilitates transactions between users and advertisers, enhancing user experience and engagement.`,
+    Description: Developed a web application for home search, allowing users to buy, sell, or rent properties. This project aimed to create a secure and reliable platform using Laravel, which included features such as user registration and login, advanced property search, and management of real estate advertisements. Additionally, I implemented a communication system that facilitates transactions between users and advertisers, enhancing user experience and engagement.`,
     technologies: ["Laravel", "MySQL", "HTML", "CSS", "JavaScript", "Git"],
   },
   {
