@@ -10,6 +10,27 @@ export const ABOUT_CONTENT = `With a strong foundation in computer science and a
 
 export const EXPERIENCES = [
   {
+  duration: "freelance",
+  role: "Full Stack Developer",
+  company: "Tamouh Employment Services – Remote (tamouhemploymentuae9.ae)",
+  description: `Developed a complete bilingual employment services platform for Tamouh Employment Services, specializing in manpower and HR solutions across the UAE. Used Laravel and Filament to build a powerful admin panel for managing clients, candidates, and job postings. Designed a responsive and accessible front-end using Tailwind CSS and Livewire. Focused on usability, speed, and multilingual support to ensure a seamless user experience for both Arabic and English speakers.`,
+  technologies: [
+    "Laravel",
+    "Filament",
+    "Livewire",
+    "TailwindCSS",
+    "Multilingual (EN/AR)"
+  ]
+}
+,
+  {
+    duration: "freelance",
+    role: "Full Stack Developer",
+    company: "Rival Group LLC – Remote (rivalgroupllc.com)",
+    description: `Led the development of a comprehensive web application for Rival Group LLC, focusing on enhancing user experience and functionality. Utilized Laravel for back-end development, ensuring robust server-side logic and database management. Implemented a responsive front-end using Blade and Tailwind CSS, optimizing the user interface for both desktop and mobile devices. Managed project workflows through GitHub, ensuring version control and collaboration with team members. The application supports multiple languages (English and Arabic), catering to a diverse user base.`,
+    technologies: ["Laravel","Filament (for admin dashboard)","MySQL", "Multilingual (EN/AR)"],
+  },
+  {
     duration: "2 Months",
     role: "Web Developer (Intern)",
     company: "Alterweb – Marrakech (alterweb.ma)",

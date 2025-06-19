@@ -3,48 +3,49 @@ import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <div className="border-b border-neutral-900 p-4">
+    <section >
       <motion.h1
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.8 }}
         className="my-20 text-center text-4xl"
       >
         Experience
       </motion.h1>
-      <div>
+
+      <div className="space-y-12">
         {EXPERIENCES.map((experience, index) => (
-          <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
+          <div
+            key={index}
+            className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6"
+          >
             <motion.div
               whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: -100 }}
-              transition={{ duration: 1 }}
-              className="w-full lg:w-1/4"
+              initial={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/4"
             >
-              <p className="mb-2 text-sm text-neutral-400">
-                {experience.Duration}
-              </p>
+              <p className="text-sm text-neutral-400">{experience.Duration}</p>
             </motion.div>
+
             <motion.div
               whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: 100 }}
-              transition={{ duration: 1 }}
-              className="w-full max-w-xl lg:w-3/4"
+              initial={{ opacity: 0, x: 50 }}
+              transition={{ duration: 0.8 }}
+              className="lg:w-3/4 space-y-3"
             >
-              <h6 className="text-lg font-semibold">
-                {experience.role} -{" "}
-                <span className="text-sm text-purple-100">
+              <h3 className="text-xl font-semibold text-white">
+                {experience.role}{" "}
+                <span className="block text-sm text-purple-400">
                   {experience.company}
                 </span>
-              </h6>
-              <p className="mb-4 text-neutral-400">
-                {experience.description}
-              </p>
-              <div className="mt-4">
-                {experience.technologies.map((tech, index) => (
+              </h3>
+              <p className="text-neutral-400">{experience.description}</p>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {experience.technologies.map((tech, i) => (
                   <span
-                    key={index}
-                    className="mr-2 mb-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-800"
+                    key={i}
+                    className="bg-purple-100/10 text-purple-300 border border-purple-500 rounded-full px-3 py-1 text-sm"
                   >
                     {tech}
                   </span>
@@ -54,7 +55,7 @@ const Experience = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
