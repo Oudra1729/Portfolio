@@ -152,6 +152,20 @@ export const EARLIER_STACK =
 
 export const PROJECTS = [
   {
+    id: "phishing",
+    title: "Phishing AI Tools",
+    kind: "Academic project",
+    description:
+      "Academic project for the Licence Professionnelle at Université Ibn Tofail — Kénitra. A React interface scores a URL or email text for phishing risk through a Python machine-learning API. It complements my backend work and is not professional security consulting.",
+    demonstrates:
+      "Connecting application development with coursework in artificial intelligence and cybersecurity.",
+    technologies: ["Python", "scikit-learn", "Flask", "React", "Vite"],
+    links: [
+      { href: "https://phishing-ai-tools.onrender.com/", label: "Live demo" },
+      { href: "https://github.com/Oudra1729/phishing-ai-tools", label: "Source" },
+    ],
+  },
+  {
     id: "rival",
     title: "Rival Group LLC",
     kind: "Client website",
@@ -162,17 +176,6 @@ export const PROJECTS = [
     technologies: ["Laravel", "Blade", "Tailwind CSS", "MySQL"],
     url: "https://rivalgroupllc.com",
     urlLabel: "Visit site",
-  },
-  {
-    id: "phishing",
-    title: "Phishing URL detection",
-    kind: "Academic project",
-    description:
-      "Academic cybersecurity project on detecting phishing URLs. It supports the Licence Professionnelle coursework and is not professional security consulting.",
-    demonstrates: "Applying data and security coursework to a concrete detection problem.",
-    technologies: ["Python", "Jupyter"],
-    url: "https://github.com/Oudra1729/phishing-ai-tools",
-    urlLabel: "View repository",
   },
   {
     id: "hello-home",
@@ -186,10 +189,6 @@ export const PROJECTS = [
   },
 ];
 
-/**
- * Licence Professionnelle institution was not in this repository.
- * Set `institution` before publishing.
- */
 export const EDUCATION = [
   {
     id: "licence",
@@ -197,7 +196,7 @@ export const EDUCATION = [
     year: "2026",
     detail: "Artificial Intelligence, Big Data & Cybersecurity",
     focusLabel: "Academic focus",
-    institution: "",
+    institution: "Université Ibn Tofail — Kénitra",
   },
   {
     id: "ofppt",

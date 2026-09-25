@@ -34,3 +34,142 @@ body {
     scroll-behavior: auto;
   }
 }
+
+.hero-orbit {
+  width: min(100%, 18.5rem);
+  margin-inline: auto;
+  flex-shrink: 0;
+}
+
+.hero-orbit__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.hero-orbit__photo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  height: 38%;
+  width: 38%;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow:
+    0 0 0 2px rgba(125, 211, 252, 0.45),
+    0 0 28px rgba(34, 211, 238, 0.18);
+}
+
+.hero-orbit__ring {
+  position: absolute;
+  inset: var(--orbit-inset);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  animation: hero-orbit-spin var(--orbit-duration) linear infinite;
+}
+
+.hero-orbit__ring[data-reverse="true"] {
+  animation-direction: reverse;
+}
+
+.hero-orbit__carrier {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--orbit-angle));
+}
+
+.hero-orbit__anchor {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.hero-orbit__level {
+  transform: rotate(calc(var(--orbit-angle) * -1));
+}
+
+.hero-orbit__icon {
+  display: grid;
+  height: 2rem;
+  width: 2rem;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: rgba(7, 11, 20, 0.92);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+  font-size: 1.05rem;
+  animation: hero-orbit-spin var(--orbit-duration) linear infinite;
+}
+
+.hero-orbit__icon--mark {
+  font-size: 1.35rem;
+}
+
+.hero-orbit__ring[data-reverse="true"] .hero-orbit__icon {
+  animation-direction: normal;
+}
+
+.hero-orbit__ring[data-reverse="false"] .hero-orbit__icon {
+  animation-direction: reverse;
+}
+
+.hero-orbit:hover .hero-orbit__ring,
+.hero-orbit:hover .hero-orbit__icon {
+  animation-play-state: paused;
+}
+
+@media (min-width: 768px) {
+  .hero-orbit {
+    width: min(100%, 24rem);
+  }
+}
+
+.hero-orbit__icon--priority {
+  height: 2.2rem;
+  width: 2.2rem;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-orbit {
+    width: 28rem;
+  }
+
+  .hero-orbit__icon {
+    height: 2.15rem;
+    width: 2.15rem;
+    font-size: 1.15rem;
+  }
+
+  .hero-orbit__icon--priority {
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-orbit__carrier--compact {
+    display: none;
+  }
+}
+
+@keyframes hero-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbit__ring,
+  .hero-orbit__icon {
+    animation: none;
+  }
+}

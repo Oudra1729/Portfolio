@@ -47,16 +47,23 @@ const Projects = () => {
                   </li>
                 ))}
               </ul>
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-block text-sm text-cyan-200 hover:text-white"
-                >
-                  {project.urlLabel}
-                </a>
-              )}
+              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+                {(project.links ??
+                  (project.url
+                    ? [{ href: project.url, label: project.urlLabel }]
+                    : [])
+                ).map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-cyan-200 hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </article>
         ))}

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import profilepic from "../assets/PHOTO.png";
 import { HERO_CONTENT, OPEN_TO, PROFILE } from "../constants";
+import HeroOrbit from "./HeroOrbit";
 
 const fade = (delay) => ({
   hidden: { opacity: 0, y: 12 },
@@ -14,8 +14,8 @@ const fade = (delay) => ({
 const Hero = () => {
   return (
     <section className="border-b border-neutral-800 pb-16 pt-12 lg:pt-20">
-      <div className="flex flex-col-reverse items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
-        <div className="max-w-xl">
+      <div className="flex w-full min-w-0 flex-col-reverse items-center gap-10 lg:flex-row lg:items-center lg:justify-between">
+        <div className="w-full min-w-0 max-w-xl">
           <motion.p
             variants={fade(0)}
             initial="hidden"
@@ -98,14 +98,7 @@ const Hero = () => {
             </a>
           </motion.div>
         </div>
-        <motion.img
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          src={profilepic}
-          alt="Portrait of Brahim Oudra"
-          className="h-36 w-36 rounded-2xl object-cover object-top shadow-lg ring-1 ring-white/10 sm:h-44 sm:w-44"
-        />
+        <HeroOrbit />
       </div>
     </section>
   );
