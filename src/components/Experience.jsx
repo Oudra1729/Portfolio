@@ -1,58 +1,56 @@
-import { EXPERIENCES } from "../constants";
-import { motion } from "framer-motion";
+import { EXPERIENCE } from "../constants";
 
 const Experience = () => {
   return (
-    <section >
-      <motion.h1
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -50 }}
-        transition={{ duration: 0.8 }}
-        className="my-20 text-center text-4xl"
-      >
+    <section id="experience" className="section-anchor border-b border-neutral-800 py-16">
+      <h2 className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
         Experience
-      </motion.h1>
-
-      <div className="space-y-12">
-        {EXPERIENCES.map((experience, index) => (
-          <div
-            key={index}
-            className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6"
-          >
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.8 }}
-              className="lg:w-1/4"
-            >
-              <p className="text-sm text-neutral-400">{experience.Duration}</p>
-            </motion.div>
-
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: 50 }}
-              transition={{ duration: 0.8 }}
-              className="lg:w-3/4 space-y-3"
-            >
-              <h3 className="text-xl font-semibold text-white">
-                {experience.role}{" "}
-                <span className="block text-sm text-purple-400">
-                  {experience.company}
+      </h2>
+      <div className="mt-8 space-y-10">
+        {EXPERIENCE.map((item) => (
+          <article key={item.id} className="grid gap-3 md:grid-cols-[9rem_1fr] md:gap-8">
+            <p className="font-mono text-xs text-neutral-500">
+              {item.period || item.periodFallback}
+            </p>
+            <div>
+              <h3 className="text-lg font-medium text-white">
+                {item.role}
+                <span className="mt-1 block text-sm font-normal text-cyan-200/90">
+                  {item.company}
                 </span>
               </h3>
-              <p className="text-neutral-400">{experience.description}</p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {experience.technologies.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-purple-100/10 text-purple-300 border border-purple-500 rounded-full px-3 py-1 text-sm"
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-neutral-400">
+                {item.summary}
+              </p>
+              {item.highlights && (
+                <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 text-sm leading-relaxed text-neutral-300">
+                  {item.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              )}
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {item.technologies.map((tech) => (
+                  <li
+                    key={tech}
+                    className="rounded-full border border-white/10 px-2.5 py-1 text-xs text-neutral-300"
                   >
                     {tech}
-                  </span>
+                  </li>
                 ))}
-              </div>
-            </motion.div>
-          </div>
+              </ul>
+              {item.url && (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-sm text-cyan-200 hover:text-white"
+                >
+                  {item.urlLabel}
+                </a>
+              )}
+            </div>
+          </article>
         ))}
       </div>
     </section>

@@ -1,57 +1,68 @@
-
-import { PROJECTS } from '../constants';
-import { motion }from "framer-motion";
-
+import { PROJECTS } from "../constants";
 
 const Projects = () => {
   return (
-    <div className="border-b border-neutral-900 pb-4">
-        <motion.h1
-             whileInView={{ opacity : 1, y:0 }}
-             initial={{ opacity : 0, y:-100 }}
-             transition={{ duration: 1 }}
-        className="my-20 text-center text-4xl">Projects</motion.h1>
-        <div>
-        {PROJECTS.map((project ,index)=>(
-        <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
-            <motion.div
-                 whileInView={{ opacity : 1, x:0 }}
-                 initial={{ opacity : 0, x:-100 }}
-                 transition={{ duration: 1.5 }}
-            className="w-full lg:w-1/4">
-                <img 
-                src={project.image} 
-                width={150}
-                height={150}
-                alt={project.title} 
-                className="mb-6 rounded" 
-                 />
-                </motion.div>   
-                <motion.div
-                      whileInView={{ opacity : 1, x:0 }}
-                      initial={{ opacity : 0, x: 100 }}
-                      transition={{ duration: 1.5 }}
-                className="w-full max-w-xl lg:w-3/4">           
-                <h6 className="mb-2 font-semibold ">
-                    {project.title}
-                </h6>
-                <p className="mb-4 text-neutral-400 ">
-                    {/* {project.description} */}
-                    <p>{project.description} <a href={project.url} target="_blank" rel="noopener noreferrer">{project.url}</a></p>
-
-                </p>
-                {project.technologies.map((tech ,index)=>(
-                    <span key={index} className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium">
-                        {tech}
-                    </span>
+    <section id="projects" className="section-anchor border-b border-neutral-800 py-16">
+      <h2 className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
+        Selected projects
+      </h2>
+      <p className="mt-3 max-w-2xl text-sm text-neutral-500">
+        Public and academic work. Production work at Evidence Way is listed under experience and is not an open-source repository.
+      </p>
+      <div className="mt-8 grid gap-5">
+        {PROJECTS.map((project) => (
+          <article
+            key={project.id}
+            className="grid gap-5 rounded-xl border border-white/10 bg-white/[0.02] p-5 sm:grid-cols-[7.5rem_1fr] sm:items-start"
+          >
+            {project.image ? (
+              <img
+                src={project.image}
+                alt=""
+                width={120}
+                height={120}
+                className="h-24 w-full rounded-md object-cover sm:h-24 sm:w-28"
+              />
+            ) : (
+              <div className="flex h-24 items-center justify-center rounded-md border border-dashed border-white/10 text-xs text-neutral-500">
+                Academic
+              </div>
+            )}
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wide text-cyan-200/70">
+                {project.kind}
+              </p>
+              <h3 className="mt-1 text-lg font-medium text-white">{project.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-400">
+                {project.description}
+              </p>
+              <p className="mt-2 text-sm text-neutral-500">{project.demonstrates}</p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <li
+                    key={tech}
+                    className="rounded-md bg-neutral-900 px-2 py-1 text-xs text-neutral-300"
+                  >
+                    {tech}
+                  </li>
                 ))}
-                </motion.div>
-                </div>
+              </ul>
+              {project.url && (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-sm text-cyan-200 hover:text-white"
+                >
+                  {project.urlLabel}
+                </a>
+              )}
+            </div>
+          </article>
         ))}
-
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
-export default Projects
+export default Projects;

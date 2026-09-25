@@ -1,45 +1,51 @@
-import { CONTACT } from "../constants";
-import { motion } from "framer-motion";
+import { PROFILE } from "../constants";
 
 const Contact = () => {
   return (
-    <div className="border-b border-neutral-900 pb-20">
-      <motion.h1
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 0.5 }}
-        className="my-10 text-center text-4xl"
-      >
-        Get in Touch
-      </motion.h1>
-      
-      <div className="text-center tracking-tighter">
-        <motion.p
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -100 }}
-          transition={{ duration: 1 }}
-          className="my-4"
-        >
-          {CONTACT.address}
-        </motion.p>
-        <motion.p
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: 100 }}
-          transition={{ duration: 1.5 }}
-          className="my-4"
-        >
-          {CONTACT.phoneNo}
-        </motion.p>
-        <a className="border-b" href={`mailto:${CONTACT.email}`}>
-          {CONTACT.email}
-        </a>
-      </div>
-      
-      {/* Copyright Section */}
-      <div className="mt-10 text-center text-sm text-gray-500">
-        <p>© {new Date().getFullYear()} Oudr@Brahim</p>
-      </div>
-    </div>
+    <footer id="contact" className="section-anchor py-16">
+      <h2 className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
+        Contact
+      </h2>
+      <p className="mt-4 max-w-xl text-neutral-300">
+        For backend, Node.js, NestJS or full-stack opportunities.
+      </p>
+      <ul className="mt-6 space-y-2 text-sm">
+        <li>
+          <a className="text-cyan-200 hover:text-white" href={`mailto:${PROFILE.email}`}>
+            {PROFILE.email}
+          </a>
+        </li>
+        <li>
+          <a
+            className="text-cyan-200 hover:text-white"
+            href={PROFILE.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a
+            className="text-cyan-200 hover:text-white"
+            href={PROFILE.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub · {PROFILE.githubHandle}
+          </a>
+        </li>
+        <li className="text-neutral-400">{PROFILE.location}</li>
+        <li>
+          <a className="text-neutral-300 hover:text-white" href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}>
+            {PROFILE.phone}
+          </a>
+        </li>
+      </ul>
+      <p className="mt-12 text-xs text-neutral-600">
+        © {new Date().getFullYear()} {PROFILE.name}
+      </p>
+    </footer>
   );
 };
 

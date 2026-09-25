@@ -1,82 +1,113 @@
-import React from 'react';
-import profilepic from "../assets/PHOTO.png";
-import { HERO_CONTENT } from "../constants";
 import { motion } from "framer-motion";
+import profilepic from "../assets/PHOTO.png";
+import { HERO_CONTENT, OPEN_TO, PROFILE } from "../constants";
 
-const container = (delay) => ({
-  hidden: {
-    x: -100,
-    opacity: 0,
-  },
+const fade = (delay) => ({
+  hidden: { opacity: 0, y: 12 },
   visible: {
-    x: 0,
     opacity: 1,
-    transition: { duration: 0.7, delay: delay },
-  },
-});
-
-const textVariant = (delay) => ({
-  hidden: {
-    y: 20,
-    opacity: 0,
-  },
-  visible: {
     y: 0,
-    opacity: 1,
-    transition: { duration: 0.6, delay: delay, ease: "easeInOut" },
+    transition: { duration: 0.45, delay, ease: "easeOut" },
   },
 });
 
 const Hero = () => {
   return (
-    <div className='border-b border-neutral-900 pb-8 lg:mb-35'>
-      <div className='flex flex-wrap'>
-        <div className='w-full lg:w-1/2'>
-          <div className='flex flex-col items-center lg:items-start'>
-            <motion.h1
-              variants={textVariant(0)}
-              initial="hidden"
-              animate="visible"
-              className='pb-8 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl'>
-              Oudra Brahim
-            </motion.h1>
-            <motion.span
-              variants={textVariant(0.5)}
-              initial="hidden"
-              animate="visible"
-              className='bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent'>
-              Full Stack Developer
-            </motion.span>
-            <motion.p
-              variants={textVariant(1)}
-              initial="hidden"
-              animate="visible"
-              className='my-2 max-w-xl py-6 font-light tracking-tighter'>
-              {HERO_CONTENT}
-            </motion.p>
-            <motion.a
-              variants={textVariant(1.5)}
-              initial="hidden"
-              animate="visible"
-              href='#contact'
-              className='mt-4 px-6 py-2 text-lg font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg hover:bg-gradient-to-l focus:outline-none'>
-              Contact Me
-            </motion.a>
-          </div>
+    <section className="border-b border-neutral-800 pb-16 pt-12 lg:pt-20">
+      <div className="flex flex-col-reverse items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
+        <div className="max-w-xl">
+          <motion.p
+            variants={fade(0)}
+            initial="hidden"
+            animate="visible"
+            className="font-mono text-xs uppercase tracking-[0.18em] text-cyan-200/80"
+          >
+            {PROFILE.focus}
+          </motion.p>
+          <motion.h1
+            variants={fade(0.08)}
+            initial="hidden"
+            animate="visible"
+            className="mt-3 text-4xl font-medium tracking-tight text-white sm:text-6xl"
+          >
+            {PROFILE.name}
+          </motion.h1>
+          <motion.p
+            variants={fade(0.16)}
+            initial="hidden"
+            animate="visible"
+            className="mt-3 text-xl text-neutral-200"
+          >
+            {PROFILE.role}
+          </motion.p>
+          <motion.p
+            variants={fade(0.24)}
+            initial="hidden"
+            animate="visible"
+            className="mt-5 text-base leading-relaxed text-neutral-400"
+          >
+            {HERO_CONTENT}
+          </motion.p>
+          <motion.p
+            variants={fade(0.3)}
+            initial="hidden"
+            animate="visible"
+            className="mt-3 text-sm text-neutral-500"
+          >
+            {OPEN_TO}
+          </motion.p>
+          <motion.div
+            variants={fade(0.36)}
+            initial="hidden"
+            animate="visible"
+            className="mt-8 flex flex-wrap gap-3"
+          >
+            <a
+              href="#experience"
+              className="rounded-md bg-white px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-neutral-200"
+            >
+              View experience
+            </a>
+            <a
+              href="#projects"
+              className="rounded-md border border-white/15 px-4 py-2 text-sm text-white hover:border-white/40"
+            >
+              View projects
+            </a>
+            <a
+              href="#contact"
+              className="rounded-md border border-white/15 px-4 py-2 text-sm text-white hover:border-white/40"
+            >
+              Contact me
+            </a>
+            <a
+              href={PROFILE.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md px-4 py-2 text-sm text-cyan-200 hover:text-white"
+            >
+              GitHub
+            </a>
+            <a
+              href={PROFILE.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md px-4 py-2 text-sm text-cyan-200 hover:text-white"
+            >
+              LinkedIn
+            </a>
+          </motion.div>
         </div>
-        <div className='w-full lg:w-1/2 flex justify-center lg:justify-end lg:items-center p-8'>
-          <motion.img
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            whileHover={{ scale: 1.05 }}
-            src={profilepic}
-            alt='Profile picture of Oudra Brahim, Full Stack Developer'
-            className="rounded-full w-48 h-48 lg:w-64 lg:h-64 object-cover shadow-lg"
-          />
-        </div>
+        <motion.img
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          src={profilepic}
+          alt="Portrait of Brahim Oudra"
+          className="h-36 w-36 rounded-2xl object-cover object-top shadow-lg ring-1 ring-white/10 sm:h-44 sm:w-44"
+        />
       </div>
-    </div>
+    </section>
   );
 };
 
